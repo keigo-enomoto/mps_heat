@@ -1,4 +1,5 @@
 // https://qiita.com/StudyKogaku/items/ce22f1b7e9b9a812debf
+// plz define ${CPATH} at .zshrc
 
 #include <stdio.h>
 #include <iostream>

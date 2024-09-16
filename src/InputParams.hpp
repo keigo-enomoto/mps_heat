@@ -33,7 +33,7 @@ namespace param {
 
 typedef std::map<std::string, std::string> ptype;
 
-class parameter {
+class InputParams {
 private:
   ptype params;
   bool valid;
@@ -44,7 +44,7 @@ private:
 
 public:
   // constructer
-  parameter(const std::string filename)
+  InputParams(const std::string filename)
       : valid(true) {
     loadfromfile(filename);
   }
@@ -52,6 +52,7 @@ public:
   explicit operator bool() const {
     return valid;
   };
+
 
   void loadfromfile(const std::string filename) {
     // class for file input
@@ -62,6 +63,8 @@ public:
     }
     readfromstream(is);
   }
+
+
   void readfromstream(std::istream &is) {
     std::string line;
     while (getline(is, line)) {
@@ -76,6 +79,8 @@ public:
       }
     }
   }
+
+
   void check_key(std::string &key) const {
     if (!contains(key)) {
       std::cerr << "No such key: " << key << std::endl;
@@ -91,11 +96,12 @@ public:
   Type get(std::string, Type value) {
     return value;
   }
-}; // class parameter
+
+}; // class InputParams
 
 
 template <>
-bool parameter::get<bool>(std::string key, bool value) {
+bool InputParams::get<bool>(std::string key, bool value) {
   if (!contains(key)) {
     return value;
   }
@@ -107,13 +113,13 @@ bool parameter::get<bool>(std::string key, bool value) {
 }
 
 template <>
-bool parameter::get(std::string key) {
+bool InputParams::get(std::string key) {
   check_key(key);
   return get<bool>(key, false);
 }
 
 template <>
-int parameter::get(std::string key, int value) {
+int InputParams::get(std::string key, int value) {
   if (!contains(key)) {
     return value;
   }
@@ -121,13 +127,13 @@ int parameter::get(std::string key, int value) {
 }
 
 template <>
-int parameter::get(std::string key) {
+int InputParams::get(std::string key) {
   check_key(key);
   return get<int>(key, 0);
 }
 
 template <>
-double parameter::get(std::string key, double value) {
+double InputParams::get(std::string key, double value) {
   if (!contains(key)) {
     return value;
   }
@@ -135,7 +141,7 @@ double parameter::get(std::string key, double value) {
 }
 
 template <>
-double parameter::get(std::string key) {
+double InputParams::get(std::string key) {
   check_key(key);
   return get<double>(key, 0.0);
 }

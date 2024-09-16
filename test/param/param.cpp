@@ -1,9 +1,9 @@
-#include "../../src/param.hpp"
+#include "../../src/InputParams.hpp"
 #include <iostream>
 
 int main() {
   std::string filename = "input.cfg";
-  param::parameter param(filename);
+  param::InputParams param(filename);
   if (!param) {
     std::cerr << "Could not find file " << filename << std::endl;
     std::abort();
@@ -25,7 +25,7 @@ int main() {
 
   // Check for non-exisiting file
   std::string non_existing_filename = "input_non_existing.cfg";
-  param::parameter param2(non_existing_filename);
+  param::InputParams param2(non_existing_filename);
   if (!param2) {
     std::cerr << "Error" << std::endl;
   }

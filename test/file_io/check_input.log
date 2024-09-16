@@ -1,0 +1,7 @@
+Loaded parameters from: input.txt
+ParticleDistance: 1
+DIM: 3
+strain_rate: 0
+wall_speed: 0
+Gravity: 9.81
+VTU_flag: 0

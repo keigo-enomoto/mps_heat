@@ -1,0 +1,15 @@
+# This line is comment
+
+ParticleDistance=1.0
+DIM=3
+strain_rate=0.0
+wall_speed=0.0
+Gravity=9.81
+DT=0.01
+FINISH_TIME=10.0
+OUTPUT_INTERVAL=100
+Init_place=./../input.dat
+output_dir=./out
+VTU_flag=0
+stress_flag=0
+flow_flag=0

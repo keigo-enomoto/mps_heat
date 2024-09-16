@@ -6,10 +6,10 @@
 #include <iostream>
 #include <chrono>
 
-// #include <Eigen/Sparse>
-// #include <Eigen/IterativeLinearSolvers>
-#include <eigen3/Eigen/Sparse>
-#include <eigen3/Eigen/IterativeLinearSolvers>
+#include <Eigen/Sparse>
+#include <Eigen/IterativeLinearSolvers>
+// #include <eigen3/Eigen/Sparse>
+// #include <eigen3/Eigen/IterativeLinearSolvers>
 
 using namespace Eigen;
 using namespace std::chrono;
